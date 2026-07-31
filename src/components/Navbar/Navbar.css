@@ -1,6 +1,6 @@
 .navbar {
 
-  position: fixed;
+  position:fixed;
 
   top:0;
 
@@ -18,7 +18,7 @@
 
   z-index:1000;
 
-  transition:0.3s;
+  transition:.3s;
 
 }
 
@@ -26,15 +26,16 @@
 
 .navbar.scrolled {
 
-  background:rgba(255,255,255,0.95);
+  background:rgba(255,255,255,.95);
 
   backdrop-filter:blur(10px);
 
   height:70px;
 
-  box-shadow:0 5px 20px rgba(0,0,0,0.1);
+  box-shadow:0 5px 20px rgba(0,0,0,.1);
 
 }
+
 
 
 
@@ -58,6 +59,7 @@
 
 
 
+
 .logo {
 
   font-size:1.5rem;
@@ -66,7 +68,10 @@
 
   color:var(--primary);
 
+  text-decoration:none;
+
 }
+
 
 
 
@@ -88,9 +93,12 @@
 
   font-weight:500;
 
+  text-decoration:none;
+
   position:relative;
 
 }
+
 
 
 
@@ -104,7 +112,9 @@
 
 
 
+
 .nav-link.active::after {
+
 
   content:"";
 
@@ -138,7 +148,10 @@
 
 
 
+
+
 .btn-hire {
+
 
   background:var(--primary);
 
@@ -148,11 +161,16 @@
 
   border-radius:30px;
 
+  text-decoration:none;
+
 }
 
 
 
+
+
 .mobile-toggle {
+
 
   display:none;
 
@@ -169,6 +187,7 @@
 
 
 .mobile-menu {
+
 
   position:absolute;
 
@@ -190,11 +209,15 @@
 
 
 
+
 .mobile-nav-link {
+
 
   padding:15px 5%;
 
   color:var(--text-muted);
+
+  text-decoration:none;
 
   font-weight:500;
 
@@ -202,13 +225,18 @@
 
 
 
+
+
 .mobile-nav-link.active {
+
 
   color:var(--primary);
 
   background:#f5f5f5;
 
 }
+
+
 
 
 
@@ -233,6 +261,31 @@ section {
 @media(max-width:768px){
 
 
+
+  .navbar {
+
+    height:70px;
+
+  }
+
+
+
+  .navbar.scrolled {
+
+    height:65px;
+
+  }
+
+
+
+  section {
+
+    scroll-margin-top:75px;
+
+  }
+
+
+
   .nav-links {
 
     display:none;
@@ -254,6 +307,7 @@ section {
     display:none;
 
   }
+
 
 
 }

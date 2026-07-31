@@ -8,7 +8,7 @@ import {
   FaCalendarAlt
 } from 'react-icons/fa';
 
-import profileImg from '../../assets/sarad.png';
+import profileImg from '../../assets/image.jpeg';
 import cvFile from '../../assets/Sharad_Pandey_CV.pdf';
 import './About.css';
 

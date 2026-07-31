@@ -17,7 +17,7 @@ import { BsWhatsapp } from 'react-icons/bs';
 
 import './Hero.css';
 
-import profileImg from '../../assets/sarad.png';
+import profileImg from '../../assets/image.jpeg';
 import cvFile from '../../assets/Sharad_Pandey_CV.pdf';
 
 export default function Hero() {

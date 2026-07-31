@@ -1,45 +1,53 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { HiMenuAlt3, HiX } from 'react-icons/hi';
-import './Navbar.css';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { HiMenuAlt3, HiX } from "react-icons/hi";
+import "./Navbar.css";
+
 
 const navLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Services', href: '#services' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Certificates', href: '#certificates' },
-  { name: 'Education', href: '#education' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' },
+  { name: "Home", href: "#home" },
+  { name: "About", href: "#about" },
+  { name: "Services", href: "#services" },
+  { name: "Skills", href: "#skills" },
+  { name: "Experience", href: "#experience" },
+  { name: "Certificates", href: "#certificates" },
+  { name: "Education", href: "#education" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
 ];
+
 
 export default function Navbar() {
 
+
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState("home");
+
 
 
   useEffect(() => {
 
+
     const handleScroll = () => {
+
 
       setScrolled(window.scrollY > 50);
 
-
-      const sections = navLinks.map(link =>
-        document.querySelector(link.href)
-      );
 
 
       const scrollPosition = window.scrollY + 120;
 
 
-      sections.forEach(section => {
+
+      navLinks.forEach((link)=>{
+
+
+        const section = document.querySelector(link.href);
+
 
         if(section){
+
 
           const top = section.offsetTop;
           const height = section.offsetHeight;
@@ -54,55 +62,84 @@ export default function Navbar() {
 
           }
 
+
         }
 
+
       });
+
 
     };
 
 
+
     window.addEventListener(
-      'scroll',
+      "scroll",
       handleScroll
     );
 
 
     return () =>
       window.removeEventListener(
-        'scroll',
+        "scroll",
         handleScroll
       );
 
 
-  }, []);
+  },[]);
 
 
 
-  const handleMobileClick = (href) => {
+
+
+  const handleMobileClick = (href)=>{
+
 
     setMobileMenuOpen(false);
 
 
-    setTimeout(() => {
 
-      const section = document.querySelector(href);
+    const section = document.querySelector(href);
 
 
-      if(section){
 
-        section.scrollIntoView({
+    if(section){
 
-          behavior: "smooth",
 
-          block: "start"
+      const navbar =
+        document.querySelector(".navbar");
 
-        });
 
-      }
+      const navbarHeight =
+        navbar ? navbar.offsetHeight : 80;
 
-    },100);
+
+
+      const sectionPosition =
+        section.getBoundingClientRect().top +
+        window.scrollY;
+
+
+
+      window.scrollTo({
+
+        top:
+          sectionPosition -
+          navbarHeight -
+          10,
+
+        behavior:"smooth"
+
+      });
+
+
+    }
+
 
   };
+
+
+
 
 
 
@@ -110,7 +147,10 @@ export default function Navbar() {
 
     <motion.nav
 
-      className={`navbar ${scrolled ? "scrolled" : ""}`}
+      className={`navbar ${
+        scrolled ? "scrolled" : ""
+      }`}
+
 
       initial={{y:-100}}
 
@@ -123,10 +163,11 @@ export default function Navbar() {
     >
 
 
+
       <div className="navbar-container">
 
 
-        <a 
+        <a
           href="#home"
           className="logo"
         >
@@ -135,12 +176,13 @@ export default function Navbar() {
 
 
 
-        {/* Desktop Menu */}
 
         <div className="nav-links">
 
+
           {
             navLinks.map((link,index)=>(
+
 
               <motion.a
 
@@ -148,11 +190,12 @@ export default function Navbar() {
 
                 href={link.href}
 
+
                 className={
                   `nav-link ${
                     activeSection === link.href.slice(1)
                     ? "active"
-                    : ""
+                    :""
                   }`
                 }
 
@@ -162,10 +205,12 @@ export default function Navbar() {
                   y:-20
                 }}
 
+
                 animate={{
                   opacity:1,
                   y:0
                 }}
+
 
                 transition={{
                   delay:index*0.05
@@ -177,8 +222,10 @@ export default function Navbar() {
 
               </motion.a>
 
+
             ))
           }
+
 
         </div>
 
@@ -195,8 +242,6 @@ export default function Navbar() {
 
             className="btn-hire"
 
-            onClick={()=>setMobileMenuOpen(false)}
-
           >
 
             Hire Me
@@ -206,13 +251,12 @@ export default function Navbar() {
 
 
 
+
           <button
 
             className="mobile-toggle"
 
-            onClick={() =>
-              setMobileMenuOpen(!mobileMenuOpen)
-            }
+            onClick={()=>setMobileMenuOpen(!mobileMenuOpen)}
 
           >
 
@@ -223,6 +267,7 @@ export default function Navbar() {
               :
               <HiMenuAlt3/>
             }
+
 
           </button>
 
@@ -239,94 +284,98 @@ export default function Navbar() {
 
 
 
-      {/* Mobile Menu */}
 
       <AnimatePresence>
 
 
-        {
-          mobileMenuOpen && (
-
-            <motion.div
-
-              className="mobile-menu"
+      {
+        mobileMenuOpen && (
 
 
-              initial={{
-                opacity:0,
-                height:0
-              }}
+          <motion.div
+
+            className="mobile-menu"
 
 
-              animate={{
-                opacity:1,
-                height:"auto"
-              }}
+            initial={{
+              opacity:0,
+              height:0
+            }}
 
 
-              exit={{
-                opacity:0,
-                height:0
-              }}
+            animate={{
+              opacity:1,
+              height:"auto"
+            }}
 
 
-            >
+            exit={{
+              opacity:0,
+              height:0
+            }}
 
-
-              {
-
-                navLinks.map(link=>(
-
-
-                  <a
-
-                    key={link.name}
-
-                    href={link.href}
-
-
-                    className={
-                      `mobile-nav-link ${
-                        activeSection === link.href.slice(1)
-                        ?
-                        "active"
-                        :
-                        ""
-                      }`
-                    }
-
-
-                    onClick={() =>
-                      handleMobileClick(link.href)
-                    }
-
-                  >
-
-                    {link.name}
-
-                  </a>
-
-
-                ))
-
-              }
+          >
 
 
 
-            </motion.div>
+          {
+            navLinks.map((link)=>(
 
 
-          )
-        }
+              <a
+
+                key={link.name}
+
+                href={link.href}
+
+
+                onClick={(e)=>{
+
+                  e.preventDefault();
+
+                  handleMobileClick(link.href);
+
+                }}
+
+
+
+                className={
+                  `mobile-nav-link ${
+                    activeSection === link.href.slice(1)
+                    ?
+                    "active"
+                    :
+                    ""
+                  }`
+                }
+
+              >
+
+                {link.name}
+
+              </a>
+
+
+            ))
+          }
+
+
+
+          </motion.div>
+
+
+        )
+      }
 
 
       </AnimatePresence>
 
 
 
+
     </motion.nav>
 
-
   );
+
 
 }
