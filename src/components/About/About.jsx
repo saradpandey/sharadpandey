@@ -32,7 +32,7 @@ export default function About() {
       label: 'College',
       value: 'Liberty College'
     },
-    { icon: <FaBriefcase />, label: 'Experience', value: '1+ Years' },
+    { icon: <FaBriefcase />, label: 'Experience', value: '2+ Years' },
     { icon: <FaCalendarAlt />, label: 'Availability', value: 'Available for Work' }
   ];
 
