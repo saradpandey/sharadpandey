@@ -40,7 +40,6 @@ export default function Skills() {
     { name: 'CSS3', level: 90, icon: <FaCss3Alt color="#1572b6" /> },
     { name: 'JavaScript', level: 85, icon: <FaJs color="#f7df1e" /> },
     { name: 'React JS', level: 85, icon: <FaReact color="#61dafb" /> },
-    { name: 'Next JS', level: 75, icon: <SiNextdotjs color="#000" /> },
     { name: 'Bootstrap', level: 90, icon: <FaBootstrap color="#7952b3" /> },
     { name: 'Tailwind CSS', level: 85, icon: <SiTailwindcss color="#06b6d4" /> },
 
@@ -48,7 +47,6 @@ export default function Skills() {
     // Backend & Database
     { name: 'Node JS', level: 75, icon: <FaNodeJs color="#339933" /> },
     { name: 'Express JS', level: 70, icon: <SiExpress color="#000" /> },
-    { name: 'MongoDB', level: 75, icon: <SiMongodb color="#47A248" /> },
     { name: 'SQL Database', level: 70, icon: <SiMysql color="#4479A1" /> },
 
 
@@ -59,19 +57,12 @@ export default function Skills() {
     { name: 'Content Design', level: 85, icon: <FaPenNib color="#8b5cf6" /> },
 
 
-    // SEO & Marketing
-    {  name: "Performance Optimization",  level: 88,  icon: <FaRocket color="#16a34a" />},
-    { name: 'Google Analytics', level: 75, icon: <SiGoogleanalytics color="#E37400" /> },
-    { name: 'Marketing', level: 80, icon: <FaChartLine color="#16a34a" /> },
-
-
-    // Social Media & YouTube
+        // Social Media & YouTube
     { name: 'YouTube Management', level: 80, icon: <FaYoutube color="#FF0000" /> },
     { name: 'Social Media', level: 80, icon: <FaFacebook color="#1877F2" /> },
 
 
     // Development Tools
-    { name: 'Git', level: 80, icon: <FaGitAlt color="#f05032" /> },
     { name: 'GitHub', level: 80, icon: <FaGithub color="#24292e" /> },
 
   ];

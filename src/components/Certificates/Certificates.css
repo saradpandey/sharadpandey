@@ -90,27 +90,36 @@
   flex: 1;
   padding: 18px;
   border-radius: 16px;
+
   text-decoration: none;
-  color: white;
+  color: #fff;
   text-align: center;
-  transition: 0.3s;
+
   font-size: 1.15rem;
   cursor: pointer;
+
+  
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  appearance: none;
+  -webkit-appearance: none;
+
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .view-btn {
-  background: #2563eb;
+  background: #2563eb !important;
 }
 
 .download-btn {
-  background: #16a34a;
+  background: #16a34a !important;
 }
 
 .view-btn:hover,
 .download-btn:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
-
 
 /* MODAL */
 .modal {

@@ -132,7 +132,7 @@ export default function Hero() {
 
             <div className="social-icons">
 
-              <a href="https://wa.me/9779749781949?text=Hi%20Sharad%20I%20want%20to%20connect"
+              <a href="https://wa.me/9779709103714?text=Hi%20Sharad%20I%20want%20to%20connect"
                 target="_blank" rel="noreferrer">
                 <BsWhatsapp />
               </a>
