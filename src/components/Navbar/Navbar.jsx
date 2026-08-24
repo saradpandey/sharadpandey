@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import "./Navbar.css";
 
-
 const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
@@ -16,156 +15,86 @@ const navLinks = [
   { name: "Contact", href: "#contact" },
 ];
 
-
 export default function Navbar() {
-
-
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
-
-
   useEffect(() => {
-
-
     const handleScroll = () => {
-
-
       setScrolled(window.scrollY > 50);
-
-
 
       const scrollPosition = window.scrollY + 120;
 
-
-
-      navLinks.forEach((link)=>{
-
-
+      navLinks.forEach((link) => {
         const section = document.querySelector(link.href);
 
-
-        if(section){
-
-
+        if (section) {
           const top = section.offsetTop;
           const height = section.offsetHeight;
 
-
-          if(
+          if (
             scrollPosition >= top &&
             scrollPosition < top + height
-          ){
-
+          ) {
             setActiveSection(section.id);
-
           }
-
-
         }
-
-
       });
-
-
     };
 
-
-
-    window.addEventListener(
-      "scroll",
-      handleScroll
-    );
-
+    window.addEventListener("scroll", handleScroll);
 
     return () =>
-      window.removeEventListener(
-        "scroll",
-        handleScroll
-      );
+      window.removeEventListener("scroll", handleScroll);
+  }, []);
 
+  /* =================================
+     MOBILE NAVIGATION FIX
+  ================================= */
 
-  },[]);
-
-
-
-
-
-  const handleMobileClick = (href)=>{
-
-
-    setMobileMenuOpen(false);
-
-
-
+  const handleMobileClick = (href) => {
     const section = document.querySelector(href);
 
+    if (!section) return;
 
+    // Close mobile menu
+    setMobileMenuOpen(false);
 
-    if(section){
+    // Wait for menu to close before scrolling
+    setTimeout(() => {
+      const navbar = document.querySelector(".navbar");
 
-
-      const navbar =
-        document.querySelector(".navbar");
-
-
-      const navbarHeight =
-        navbar ? navbar.offsetHeight : 80;
-
-
+      const navbarHeight = navbar
+        ? navbar.offsetHeight
+        : 65;
 
       const sectionPosition =
         section.getBoundingClientRect().top +
-        window.scrollY;
-
-
+        window.pageYOffset;
 
       window.scrollTo({
-
-        top:
-          sectionPosition -
-          navbarHeight -
-          10,
-
-        behavior:"smooth"
-
+        top: sectionPosition - navbarHeight,
+        behavior: "smooth",
       });
-
-
-    }
-
-
+    }, 100);
   };
 
-
-
-
-
-
   return (
-
     <motion.nav
-
       className={`navbar ${
         scrolled ? "scrolled" : ""
       }`}
-
-
-      initial={{y:-100}}
-
-      animate={{y:0}}
-
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
       transition={{
-        duration:0.5
+        duration: 0.5,
       }}
-
     >
-
-
 
       <div className="navbar-container">
 
+        {/* LOGO */}
 
         <a
           href="#home"
@@ -175,207 +104,140 @@ export default function Navbar() {
         </a>
 
 
-
+        {/* DESKTOP NAV LINKS */}
 
         <div className="nav-links">
 
+          {navLinks.map((link, index) => (
 
-          {
-            navLinks.map((link,index)=>(
+            <motion.a
+              key={link.name}
+              href={link.href}
 
+              className={`nav-link ${
+                activeSection === link.href.slice(1)
+                  ? "active"
+                  : ""
+              }`}
 
-              <motion.a
+              initial={{
+                opacity: 0,
+                y: -20,
+              }}
 
-                key={link.name}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
 
-                href={link.href}
+              transition={{
+                delay: index * 0.05,
+              }}
+            >
+              {link.name}
+            </motion.a>
 
-
-                className={
-                  `nav-link ${
-                    activeSection === link.href.slice(1)
-                    ? "active"
-                    :""
-                  }`
-                }
-
-
-                initial={{
-                  opacity:0,
-                  y:-20
-                }}
-
-
-                animate={{
-                  opacity:1,
-                  y:0
-                }}
-
-
-                transition={{
-                  delay:index*0.05
-                }}
-
-              >
-
-                {link.name}
-
-              </motion.a>
-
-
-            ))
-          }
-
+          ))}
 
         </div>
 
 
-
-
+        {/* NAV ACTIONS */}
 
         <div className="nav-actions">
 
-
           <a
-
             href="#contact"
-
             className="btn-hire"
-
           >
-
             Hire Me
-
           </a>
 
 
-
-
+          {/* MOBILE TOGGLE */}
 
           <button
-
             className="mobile-toggle"
 
-            onClick={()=>setMobileMenuOpen(!mobileMenuOpen)}
-
-          >
-
-            {
-              mobileMenuOpen
-              ?
-              <HiX/>
-              :
-              <HiMenuAlt3/>
+            onClick={() =>
+              setMobileMenuOpen(
+                !mobileMenuOpen
+              )
             }
 
+            aria-label="Toggle navigation"
+          >
+
+            {mobileMenuOpen ? (
+              <HiX />
+            ) : (
+              <HiMenuAlt3 />
+            )}
 
           </button>
 
-
-
         </div>
-
-
 
       </div>
 
 
-
-
-
-
+      {/* MOBILE MENU */}
 
       <AnimatePresence>
 
-
-      {
-        mobileMenuOpen && (
-
+        {mobileMenuOpen && (
 
           <motion.div
-
             className="mobile-menu"
 
-
             initial={{
-              opacity:0,
-              height:0
+              opacity: 0,
+              height: 0,
             }}
-
 
             animate={{
-              opacity:1,
-              height:"auto"
+              opacity: 1,
+              height: "auto",
             }}
-
 
             exit={{
-              opacity:0,
-              height:0
+              opacity: 0,
+              height: 0,
             }}
-
           >
 
-
-
-          {
-            navLinks.map((link)=>(
-
+            {navLinks.map((link) => (
 
               <a
-
                 key={link.name}
 
                 href={link.href}
 
-
-                onClick={(e)=>{
-
+                onClick={(e) => {
                   e.preventDefault();
-
-                  handleMobileClick(link.href);
-
+                  handleMobileClick(
+                    link.href
+                  );
                 }}
 
-
-
-                className={
-                  `mobile-nav-link ${
-                    activeSection === link.href.slice(1)
-                    ?
-                    "active"
-                    :
-                    ""
-                  }`
-                }
-
+                className={`mobile-nav-link ${
+                  activeSection ===
+                  link.href.slice(1)
+                    ? "active"
+                    : ""
+                }`}
               >
-
                 {link.name}
-
               </a>
 
-
-            ))
-          }
-
-
+            ))}
 
           </motion.div>
 
-
-        )
-      }
-
+        )}
 
       </AnimatePresence>
 
-
-
-
     </motion.nav>
-
   );
-
-
 }

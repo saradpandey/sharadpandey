@@ -1,287 +1,464 @@
+/* =================================
+   NAVBAR
+================================= */
+
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
 
-  position:fixed;
+  background: transparent;
 
-  top:0;
+  display: flex;
+  align-items: center;
 
-  left:0;
+  z-index: 99999;
 
-  width:100%;
+  transition:
+    background 0.3s ease,
+    height 0.3s ease,
+    box-shadow 0.3s ease,
+    backdrop-filter 0.3s ease;
 
-  height:80px;
-
-  background:transparent;
-
-  display:flex;
-
-  align-items:center;
-
-  z-index:1000;
-
-  transition:.3s;
-
+  box-sizing: border-box;
 }
 
 
+/* =================================
+   SCROLLED NAVBAR
+================================= */
 
 .navbar.scrolled {
+  background: rgba(255, 255, 255, 0.95);
 
-  background:rgba(255,255,255,.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
-  backdrop-filter:blur(10px);
+  height: 70px;
 
-  height:70px;
-
-  box-shadow:0 5px 20px rgba(0,0,0,.1);
-
+  box-shadow:
+    0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
 
-
+/* =================================
+   NAVBAR CONTAINER
+================================= */
 
 .navbar-container {
+  width: 100%;
+  max-width: 1400px;
 
-  width:100%;
+  height: 100%;
 
-  max-width:1400px;
+  margin: 0 auto;
 
-  margin:auto;
+  padding: 0 4%;
 
-  padding:0 4%;
+  display: flex;
 
-  display:flex;
+  justify-content: space-between;
+  align-items: center;
 
-  justify-content:space-between;
-
-  align-items:center;
-
+  box-sizing: border-box;
 }
 
 
-
+/* =================================
+   LOGO
+================================= */
 
 .logo {
+  font-size: 1.5rem;
 
-  font-size:1.5rem;
+  font-weight: 800;
 
-  font-weight:800;
+  color: var(--primary);
 
-  color:var(--primary);
+  text-decoration: none;
 
-  text-decoration:none;
-
+  white-space: nowrap;
 }
 
 
-
+/* =================================
+   DESKTOP NAV LINKS
+================================= */
 
 .nav-links {
+  display: flex;
 
-  display:flex;
+  align-items: center;
 
-  gap:2rem;
-
+  gap: 2rem;
 }
-
 
 
 .nav-link {
+  color: var(--text-muted);
 
-  color:var(--text-muted);
+  font-size: 0.925rem;
 
-  font-size:.925rem;
+  font-weight: 500;
 
-  font-weight:500;
+  text-decoration: none;
 
-  text-decoration:none;
+  position: relative;
 
-  position:relative;
-
+  transition:
+    color 0.3s ease;
 }
-
-
 
 
 .nav-link:hover,
-
 .nav-link.active {
-
-  color:var(--primary);
-
+  color: var(--primary);
 }
 
 
-
+/* Active underline */
 
 .nav-link.active::after {
+  content: "";
 
+  position: absolute;
 
-  content:"";
+  bottom: -6px;
+  left: 0;
 
-  position:absolute;
+  width: 100%;
+  height: 2px;
 
-  bottom:-6px;
-
-  left:0;
-
-  width:100%;
-
-  height:2px;
-
-  background:var(--primary);
-
+  background: var(--primary);
 }
 
 
-
-
+/* =================================
+   NAV ACTIONS
+================================= */
 
 .nav-actions {
+  display: flex;
 
-  display:flex;
+  align-items: center;
 
-  align-items:center;
-
-  gap:1rem;
-
+  gap: 1rem;
 }
 
 
-
-
+/* =================================
+   HIRE BUTTON
+================================= */
 
 .btn-hire {
+  background: var(--primary);
 
+  color: white;
 
-  background:var(--primary);
+  padding: 0.6rem 1.4rem;
 
-  color:white;
+  border-radius: 30px;
 
-  padding:.6rem 1.4rem;
+  text-decoration: none;
 
-  border-radius:30px;
-
-  text-decoration:none;
-
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
 
+.btn-hire:hover {
+  transform: translateY(-2px);
+
+  opacity: 0.9;
+}
 
 
+/* =================================
+   MOBILE TOGGLE
+================================= */
 
 .mobile-toggle {
+  display: none;
 
+  background: none;
 
-  display:none;
+  border: none;
 
-  background:none;
+  outline: none;
 
-  border:none;
+  box-shadow: none;
 
-  font-size:1.8rem;
+  font-size: 1.8rem;
 
+  cursor: pointer;
+
+  padding: 5px;
+
+  -webkit-tap-highlight-color: transparent;
 }
 
 
-
-
+/* =================================
+   MOBILE MENU
+================================= */
 
 .mobile-menu {
+  /*
+    FIX:
+    Keep the mobile menu attached
+    directly below the fixed navbar.
+  */
 
+  position: absolute;
 
-  position:absolute;
+  top: 100%;
 
-  top:100%;
+  left: 0;
 
-  left:0;
+  width: 100%;
 
-  width:100%;
+  background: white;
 
-  background:white;
+  display: flex;
 
-  display:flex;
+  flex-direction: column;
 
-  flex-direction:column;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.1);
 
-  box-shadow:0 10px 30px rgba(0,0,0,.1);
+  z-index: 99998;
 
+  box-sizing: border-box;
 }
 
 
-
+/* =================================
+   MOBILE NAV LINKS
+================================= */
 
 .mobile-nav-link {
+  display: block;
 
+  width: 100%;
 
-  padding:15px 5%;
+  padding: 15px;
 
-  color:var(--text-muted);
+  color: var(--text-muted);
 
-  text-decoration:none;
+  text-decoration: none;
 
-  font-weight:500;
+  font-weight: 500;
 
+  box-sizing: border-box;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+
+  -webkit-tap-highlight-color: transparent;
 }
 
 
-
+.mobile-nav-link:hover {
+  color: var(--primary);
+}
 
 
 .mobile-nav-link.active {
+  color: var(--primary);
 
-
-  color:var(--primary);
-
-  background:#f5f5f5;
-
+  background: #f5f5f5;
 }
 
 
-
-
+/* =================================
+   SMOOTH SCROLL
+================================= */
 
 html {
-
-  scroll-behavior:smooth;
-
+  scroll-behavior: smooth;
 }
 
 
+/* =================================
+   PREVENT SECTIONS FROM HIDING
+   BEHIND NAVBAR
+================================= */
 
 section {
-
-  scroll-margin-top:90px;
-
+  scroll-margin-top: 90px;
 }
 
 
+/* =================================
+   SPACE FOR FIXED NAVBAR
+================================= */
+
+body {
+  margin: 0;
+
+  padding-top: 80px;
+}
 
 
+/* =================================
+   TABLET / LAPTOP
+================================= */
 
 @media (max-width: 1100px) {
+
   .navbar {
     height: 70px;
   }
+
 
   .navbar.scrolled {
     height: 65px;
   }
 
+
+  .navbar-container {
+    width: 100%;
+
+    height: 100%;
+
+    padding: 0 15px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* Hide desktop links */
+
   .nav-links {
     display: none;
   }
 
+
+  /* Show hamburger */
+
   .mobile-toggle {
     display: block;
-    background: none;
-    border: none;
-    outline: none;
-    box-shadow: none;
-    font-size: 1.8rem;
-    cursor: pointer;
   }
+
+
+  /* Hide hire button */
 
   .btn-hire {
     display: none;
+  }
+
+
+  /* Mobile menu */
+
+  .mobile-menu {
+    top: 100%;
+
+    left: 0;
+    right: 0;
+
+    width: 100%;
+
+    max-height:
+      calc(100vh - 70px);
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+
+  .mobile-nav-link {
+    width: 100%;
+
+    padding: 15px;
+
+    box-sizing: border-box;
+  }
+
+
+  body {
+    padding-top: 70px;
+  }
+
+
+  section {
+    scroll-margin-top: 75px;
+  }
+}
+
+
+/* =================================
+   SMALL DEVICES
+================================= */
+
+@media (max-width: 768px) {
+
+  .navbar {
+    height: 65px;
+  }
+
+
+  .navbar.scrolled {
+    height: 65px;
+  }
+
+
+  .navbar-container {
+    padding-left: 10px;
+
+    padding-right: 10px;
+  }
+
+
+  .mobile-menu {
+    top: 100%;
+
+    max-height:
+      calc(100vh - 65px);
+  }
+
+
+  body {
+    padding-top: 65px;
+  }
+
+
+  section {
+    /*
+      JavaScript handles the exact
+      navbar offset while scrolling.
+    */
+
+    scroll-margin-top: 0;
+  }
+}
+
+
+/* =================================
+   VERY SMALL DEVICES
+================================= */
+
+@media (max-width: 480px) {
+
+  .navbar-container {
+    padding-left: 10px;
+
+    padding-right: 10px;
+  }
+
+
+  .mobile-menu {
+    top: 100%;
+  }
+
+
+  .mobile-nav-link {
+    padding: 14px 15px;
   }
 }

@@ -25,13 +25,13 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   font-family: var(--font-sans);
   background-color: var(--bg-primary);
   color: var(--text-main);
-  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
