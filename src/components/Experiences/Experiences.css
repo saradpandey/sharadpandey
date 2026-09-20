@@ -4,18 +4,19 @@
 
 .experience-section {
   width: 100%;
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-left: 0;
+  padding-right: 0;
   box-sizing: border-box;
   overflow-x: hidden;
 }
 
 .experience-wrapper {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1150px;
   margin: 0 auto;
   box-sizing: border-box;
 }
+
 
 /* ================================
    TIMELINE
@@ -33,7 +34,10 @@
   box-sizing: border-box;
 }
 
-/* Vertical timeline line */
+
+/* ================================
+   VERTICAL TIMELINE LINE
+================================ */
 
 .timeline-line {
   position: absolute;
@@ -48,6 +52,7 @@
 
   z-index: 0;
 }
+
 
 /* ================================
    TIMELINE ITEM
@@ -66,6 +71,7 @@
   box-sizing: border-box;
   min-width: 0;
 }
+
 
 /* ================================
    TIMELINE DOT
@@ -103,6 +109,7 @@
   box-sizing: border-box;
 }
 
+
 /* ================================
    EXPERIENCE CARD
 ================================ */
@@ -127,6 +134,7 @@
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
+
 
 /* ================================
    CARD HEADER
@@ -191,6 +199,7 @@
   white-space: nowrap;
 }
 
+
 /* ================================
    POINTS LIST
 ================================ */
@@ -235,6 +244,7 @@
   font-size: 1.2rem;
 }
 
+
 /* ================================
    TABLET
 ================================ */
@@ -244,8 +254,8 @@
   .experience-section {
     width: 100%;
 
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
 
     box-sizing: border-box;
 
@@ -254,7 +264,8 @@
 
   .experience-wrapper {
     width: 100%;
-    max-width: none;
+
+    max-width: 1150px;
 
     margin: 0 auto;
 
@@ -294,6 +305,7 @@
 
   .timeline-card {
     width: 100%;
+
     min-width: 0;
 
     padding: 1.5rem;
@@ -316,6 +328,7 @@
   }
 }
 
+
 /* ================================
    MOBILE
 ================================ */
@@ -325,8 +338,8 @@
   .experience-section {
     width: 100%;
 
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
 
     box-sizing: border-box;
 
@@ -335,7 +348,8 @@
 
   .experience-wrapper {
     width: 100%;
-    max-width: 100%;
+
+    max-width: 1150px;
 
     margin: 0;
 
@@ -386,6 +400,7 @@
 
   .timeline-card {
     width: 100%;
+
     min-width: 0;
 
     padding: 1.1rem;
@@ -444,6 +459,7 @@
   }
 }
 
+
 /* ================================
    VERY SMALL PHONES
 ================================ */
@@ -453,6 +469,11 @@
   .experience-section {
     padding-left: 10px;
     padding-right: 10px;
+  }
+
+  .experience-wrapper {
+    width: 100%;
+    max-width: 100%;
   }
 
   .timeline-item {

@@ -20,7 +20,7 @@ export default function Contact() {
     {
       icon: <FaPhoneAlt />,
       title: "Phone",
-      value: "+977 9709103714",
+      value: "+977 9749781949",
     },
     {
       icon: <FaMapMarkerAlt />,
