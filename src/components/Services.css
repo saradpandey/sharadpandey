@@ -1,0 +1,354 @@
+.services-section {
+  padding: 80px 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333333;
+  display: flex;
+  justify-content: center;
+}
+
+
+.services-container {
+ max-width: 1250px;
+   width: 100%;
+  margin: 0 auto;
+  padding: 0 4%;
+}
+
+
+/* =========================
+   Header Section
+========================= */
+
+.services-header {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+
+.services-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 15px;
+}
+
+
+.services-subtitle {
+  font-size: 1.05rem;
+  color: #6c757d;
+  max-width: 750px;
+  margin: auto;
+  line-height: 1.7;
+}
+
+
+
+/* =========================
+   Services Grid
+========================= */
+
+.services-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 30px;
+
+  margin-bottom: 40px;
+
+}
+
+
+
+/* =========================
+   Service Card
+========================= */
+
+.service-card {
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 18px;
+
+  padding: 40px 30px;
+
+  text-align: center;
+
+  box-shadow: 
+  0 5px 15px rgba(0,0,0,0.05);
+
+  transition: all 0.3s ease;
+
+  cursor: pointer;
+
+}
+
+
+
+.service-card:hover {
+
+  border-color: #0d6efd;
+
+  box-shadow:
+  0 15px 35px rgba(13,110,253,0.15);
+
+}
+
+
+
+/* =========================
+   Icon Container
+========================= */
+
+.service-icon-container {
+
+  width: 100px;
+
+  height: 100px;
+
+  background: #f8fafc;
+
+  border-radius: 22px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  margin: 0 auto 25px auto;
+
+  border: 1px solid #edf2f7;
+
+  transition: all 0.3s ease;
+
+}
+
+
+
+/* React Icons */
+
+.service-icon-container svg {
+
+  font-size: 60px;
+
+  transition: transform 0.3s ease;
+
+}
+
+
+
+/* Icon Hover */
+
+.service-card:hover 
+.service-icon-container svg {
+
+  transform: scale(1.15);
+
+}
+
+
+
+.service-card:hover 
+.service-icon-container {
+
+  background: #e6f0ff;
+
+}
+
+
+
+/* =========================
+   Card Text
+========================= */
+
+
+.service-card-title {
+
+  font-size: 1.3rem;
+
+  font-weight: 700;
+
+  color: #2d3748;
+
+  margin-bottom: 15px;
+
+}
+
+
+
+.service-card-description {
+
+  font-size: 0.95rem;
+
+  color: #4a5568;
+
+  line-height: 1.7;
+
+}
+
+
+
+/* =========================
+   CTA Section
+========================= */
+
+.services-cta {
+
+  text-align: center;
+
+  margin-top: 40px;
+
+}
+
+
+.cta-button {
+
+  background-color: #0d6efd;
+
+  color: white;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  padding: 12px 35px;
+
+  border-radius: 8px;
+
+  border: none;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+
+}
+
+
+
+.cta-button:hover {
+
+  background-color: #0b5ed7;
+
+  transform: translateY(-3px);
+
+}
+
+
+
+/* =========================
+   Responsive Design
+========================= */
+
+
+/* Large Desktop */
+
+@media (min-width:1200px){
+
+.services-grid{
+
+grid-template-columns:repeat(3,1fr);
+
+}
+
+}
+
+
+
+/* Tablet */
+
+@media (min-width:600px) and (max-width:1199px){
+
+
+.services-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+
+.services-title{
+
+font-size:2.2rem;
+
+}
+
+
+}
+
+
+
+/* Mobile */
+
+@media(max-width:599px){
+
+
+.services-section{
+
+padding:60px 0;
+
+}
+
+
+.services-container{
+
+padding:0 20px;
+
+}
+
+
+.services-title{
+
+font-size:1.9rem;
+
+}
+
+
+.services-subtitle{
+
+font-size:0.95rem;
+
+}
+
+
+
+.services-grid{
+
+grid-template-columns:1fr;
+
+gap:25px;
+
+}
+
+
+
+.service-card{
+
+padding:35px 20px;
+
+}
+
+
+
+.service-icon-container{
+
+width:85px;
+
+height:85px;
+
+}
+
+
+
+.service-icon-container svg{
+
+font-size:50px;
+
+}
+
+
+
+}
